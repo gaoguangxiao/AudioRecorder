@@ -7,7 +7,7 @@
 //
 
 #import "ShowView.h"
-
+#import "MusicModel.h"
 #define ScreenHeight [[UIScreen mainScreen] bounds].size.height
 #define ScreenWidth  [[UIScreen mainScreen] bounds].size.width
 
@@ -55,21 +55,25 @@
     float channelCenterY = self.frame.size.height/2;//中间线是
     
     for (NSInteger i = 0; i < self.pointArr.count; i++){
-        NSNumber *point = self.pointArr[i];
+        MusicModel *point = self.pointArr[i];
         
-        double peakPowerForChannel = pow(10, (0.05 * [point floatValue]));
+        double peakPowerForChannel = pow(10, (0.05 * point.value));
         float val = height * peakPowerForChannel;
+        
+        NSLog(@"%f---%f",point.value,val);
         
         float x = i * (self.frame.size.width - 20) / self.pointArr.count;
         
+        //输出分贝数值
         NSString *value = [NSString stringWithFormat:@"%.1f",val];
         [value drawInRect:CGRectMake(x, channelCenterY - val/2 - 20, 45, 20) withAttributes:nil];
-        
-        NSString *valueAfter = [NSString stringWithFormat:@"%.1f",[point floatValue]];
+//
+        NSString *valueAfter = [NSString stringWithFormat:@"%.1f",point.value];
         [valueAfter drawInRect:CGRectMake(x, channelCenterY + val/2 + 20, 45, 20) withAttributes:nil];
         
         CGContextMoveToPoint(context, x, channelCenterY - val/2);
-        CGContextAddLineToPoint(context, x, channelCenterY + val/2);
+//        CGContextAddLineToPoint(context, x, channelCenterY + val/2);
+        CGContextAddLineToPoint(context, x, channelCenterY);//
         CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:240/255.0 green:70255.0 blue:135255.0 alpha:1.0].CGColor);
         CGContextStrokePath(context);
     }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E490BAE210E9C2300333586 /* recordTemp1532912764 in Resources */ = {isa = PBXBuildFile; fileRef = 1E490BAD210E9C2300333586 /* recordTemp1532912764 */; };
+		1E490BB1210E9D7E00333586 /* MusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E490BB0210E9D7E00333586 /* MusicModel.m */; };
+		1E490BB3210EA55200333586 /* caiyangdian.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E490BB2210EA55200333586 /* caiyangdian.png */; };
 		1E4ED940210D683D00FE7C36 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4ED93F210D683D00FE7C36 /* AppDelegate.m */; };
 		1E4ED943210D683D00FE7C36 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4ED942210D683D00FE7C36 /* ViewController.m */; };
 		1E4ED946210D683D00FE7C36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E4ED944210D683D00FE7C36 /* Main.storyboard */; };
@@ -20,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E490BAD210E9C2300333586 /* recordTemp1532912764 */ = {isa = PBXFileReference; lastKnownFileType = file; path = recordTemp1532912764; sourceTree = "<group>"; };
+		1E490BAF210E9D7E00333586 /* MusicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicModel.h; sourceTree = "<group>"; };
+		1E490BB0210E9D7E00333586 /* MusicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicModel.m; sourceTree = "<group>"; };
+		1E490BB2210EA55200333586 /* caiyangdian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caiyangdian.png; sourceTree = "<group>"; };
 		1E4ED93B210D683D00FE7C36 /* AudioRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4ED93E210D683D00FE7C36 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1E4ED93F210D683D00FE7C36 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -68,6 +75,8 @@
 		1E4ED93D210D683D00FE7C36 /* AudioRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				1E490BB2210EA55200333586 /* caiyangdian.png */,
+				1E490BAD210E9C2300333586 /* recordTemp1532912764 */,
 				1E4ED957210D6E7500FE7C36 /* Blue-One Love.mp3 */,
 				1E4ED95F210DB97900FE7C36 /* 张学友-你好毒.mp3 */,
 				1E4ED93E210D683D00FE7C36 /* AppDelegate.h */,
@@ -78,6 +87,8 @@
 				1E4ED955210D689100FE7C36 /* JHAudioRecorder.m */,
 				1E4ED95C210DA9A100FE7C36 /* ShowView.h */,
 				1E4ED95D210DA9A100FE7C36 /* ShowView.m */,
+				1E490BAF210E9D7E00333586 /* MusicModel.h */,
+				1E490BB0210E9D7E00333586 /* MusicModel.m */,
 				1E4ED944210D683D00FE7C36 /* Main.storyboard */,
 				1E4ED947210D683D00FE7C36 /* Assets.xcassets */,
 				1E4ED949210D683D00FE7C36 /* LaunchScreen.storyboard */,
@@ -145,6 +156,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E4ED958210D6E7500FE7C36 /* Blue-One Love.mp3 in Resources */,
+				1E490BAE210E9C2300333586 /* recordTemp1532912764 in Resources */,
+				1E490BB3210EA55200333586 /* caiyangdian.png in Resources */,
 				1E4ED94B210D683D00FE7C36 /* LaunchScreen.storyboard in Resources */,
 				1E4ED960210DB97900FE7C36 /* 张学友-你好毒.mp3 in Resources */,
 				1E4ED948210D683D00FE7C36 /* Assets.xcassets in Resources */,
@@ -160,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E4ED943210D683D00FE7C36 /* ViewController.m in Sources */,
+				1E490BB1210E9D7E00333586 /* MusicModel.m in Sources */,
 				1E4ED94E210D683D00FE7C36 /* main.m in Sources */,
 				1E4ED956210D689100FE7C36 /* JHAudioRecorder.m in Sources */,
 				1E4ED940210D683D00FE7C36 /* AppDelegate.m in Sources */,

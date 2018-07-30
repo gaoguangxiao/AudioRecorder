@@ -90,14 +90,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拍打次数：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gD2-cB-O7L">
+                                <rect key="frame" x="26" y="644.5" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Iuw-Yj-PFj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="07m-gV-8c4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HBY-tK-ljE" secondAttribute="trailing" id="39e-SS-kl5"/>
+                            <constraint firstItem="gD2-cB-O7L" firstAttribute="leading" secondItem="HBY-tK-ljE" secondAttribute="leading" id="Bpn-3q-4Nd"/>
                             <constraint firstItem="DpO-ih-mBJ" firstAttribute="top" secondItem="i2u-7B-1Qn" secondAttribute="bottom" constant="21" id="Bpo-Kb-EzB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Gko-2G-cur" secondAttribute="trailing" constant="10" id="FuW-XD-8hX"/>
                             <constraint firstItem="ORw-qb-17R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Khh-62-Nhr"/>
+                            <constraint firstItem="gD2-cB-O7L" firstAttribute="top" secondItem="HBY-tK-ljE" secondAttribute="bottom" constant="5" id="M7h-wH-0g4"/>
                             <constraint firstItem="Gko-2G-cur" firstAttribute="top" secondItem="DpO-ih-mBJ" secondAttribute="bottom" constant="20" id="QYh-aj-6eb"/>
                             <constraint firstItem="GVZ-sd-9Hc" firstAttribute="top" secondItem="8Gu-29-PIe" secondAttribute="bottom" constant="10" id="QeM-2x-7YZ"/>
                             <constraint firstItem="GVZ-sd-9Hc" firstAttribute="leading" secondItem="8Gu-29-PIe" secondAttribute="leading" id="RjD-4u-PGI"/>
@@ -121,6 +129,7 @@
                     <navigationItem key="navigationItem" title="音频录制波形" id="lyY-yR-Io0"/>
                     <connections>
                         <outlet property="MeterLabel" destination="GVZ-sd-9Hc" id="W3s-K2-rSu"/>
+                        <outlet property="patCount" destination="gD2-cB-O7L" id="tDQ-AS-gv4"/>
                         <outlet property="progressLabel" destination="7h3-GF-0It" id="qfg-Zm-ulA"/>
                         <outlet property="progressView" destination="Gko-2G-cur" id="K59-1H-YoX"/>
                     </connections>

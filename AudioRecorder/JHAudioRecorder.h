@@ -23,6 +23,8 @@
 -(void)reloadPlayTime:(AVAudioPlayer *)audioPlay;
 
 -(void)reloadMeterValue:(float)meter;
+
+-(void)reloadPatCount:(NSInteger)patCount;
 @end
 
 @interface JHAudioRecorder : NSObject

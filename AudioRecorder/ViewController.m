@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UILabel *MeterLabel;
+@property (weak, nonatomic) IBOutlet UILabel *patCount;
 
 @property (strong, nonatomic) ShowView *waveView;
 @property (strong, nonatomic) NSTimer *timer;
@@ -49,7 +50,9 @@
     [audio playRecordingWith:@""];
 }
 - (IBAction)PlayMusic:(id)sender {
-    NSString *pathStr = [[NSBundle mainBundle] pathForResource:@"张学友-你好毒" ofType:@"mp3"];
+//    NSString *pathStr = [[NSBundle mainBundle] pathForResource:@"张学友-你好毒" ofType:@"mp3"];
+    NSString *pathStr = [[NSBundle mainBundle]pathForResource:@"recordTemp1532912764" ofType:@""];
+    
     JHAudioRecorder *audio = [JHAudioRecorder shareAudioRecorder];
     audio.delegate = self;
     [audio playRecordingWith:pathStr];
@@ -76,9 +79,13 @@
 }
 -(void)reloadValueWithArr:(NSArray *)valueArr{
     
-//    self.waveView.pointArr = [valueArr copy];
+    self.waveView.pointArr = [valueArr copy];
     
 //    self.waveView
+}
+-(void)reloadPatCount:(NSInteger)patCount{
+    
+    self.patCount.text = [NSString stringWithFormat:@"拍打次数：%ld",patCount];
 }
 //#pragma mark - 定时器，造数据
 //- (void)removeTimer

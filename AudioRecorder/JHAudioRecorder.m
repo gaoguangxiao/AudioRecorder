@@ -8,6 +8,7 @@
 
 #import "JHAudioRecorder.h"
 
+#import "MusicModel.h"
 @interface JHAudioRecorder ()<AVCaptureAudioDataOutputSampleBufferDelegate,AVAudioPlayerDelegate>{
     
     NSString*  nowTempPath;
@@ -83,6 +84,11 @@ static JHAudioRecorder *_instance;
         }
         self.audioRecorder = nil;
     }
+    if (self.audioPlayer) {
+        if ([self.audioPlayer isPlaying]) {
+            [self stopPlaying];
+        }
+    }
     self.audioRecorder = [[AVAudioRecorder alloc] initWithURL:url settings:recordSettings error:&error];
     
     if ([self .audioRecorder prepareToRecord]){
@@ -134,7 +140,7 @@ static JHAudioRecorder *_instance;
 
     
     
-//    [self startCheck];
+    [self startCheck];
 }
 - (void)stopPlaying{
     NSLog(@"stopPlaying");
@@ -154,7 +160,7 @@ static JHAudioRecorder *_instance;
 - (void)startCheck{
     if (!checkTime) {
         pointArr = [[NSMutableArray alloc]init];
-        checkTime = [NSTimer scheduledTimerWithTimeInterval:1.0/5000.0 target:self selector:@selector(checkRecordValueWithTime:) userInfo:nil repeats:YES];
+        checkTime = [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(checkRecordValueWithTime:) userInfo:nil repeats:YES];
     }
 }
 - (void)checkRecordValueWithTime:(NSTimer *)time{
@@ -164,17 +170,37 @@ static JHAudioRecorder *_instance;
     
 //    pow(x,y) 计算X的Y次方根
 //    double peakPowerForChannel = pow(10, (0.05 * peakPower));
+    BOOL newPat = false;
     
-//    [pointArr addObject:[NSNumber numberWithDouble:peakPower]];
+    MusicModel *m = [[MusicModel alloc]init];
+    m.value = peakPower;
+    if (pointArr.count > 0) {
+        MusicModel *tmp = pointArr.lastObject;
+        NSLog(@"此时的数值：%f，上一次的数值：%f",m.value,tmp.value);
+        if (m.value > tmp.value) {
+            m.patCount = tmp.patCount + 1;
+            newPat = YES;
+        }
+    }else{
+        newPat = YES;
+        m.patCount = 1;
+    }
+    
+    [pointArr addObject:m];
 //    NSLog(@"peakPowerForChannel : %f",peakPowerForChannel);
     
+    //获取一段声音中第几拍
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(reloadPatCount:)]&&newPat) {
+        [self.delegate reloadPatCount:m.patCount];
+    }
+    
     //将suoy
-    if ([pointArr count] >= 15) {
+    if ([pointArr count] >= 10) {
         [pointArr removeObjectAtIndex:0];
     }
     
     if (self.delegate&&[self.delegate respondsToSelector:@selector(reloadPlayTime:)]) {
-//        [self.delegate reloadPlayTime:self.audioPlayer];
+        [self.delegate reloadPlayTime:self.audioPlayer];
     }
     
     if (self.delegate&&[self.delegate respondsToSelector:@selector(reloadValueWithArr:)]) {
